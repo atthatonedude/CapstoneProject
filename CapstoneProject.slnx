@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="APIAccessLibrary/APIAccessLibrary.csproj" />
+  <Project Path="CapstoneProject/CapstoneProject.csproj" />
+</Solution>
