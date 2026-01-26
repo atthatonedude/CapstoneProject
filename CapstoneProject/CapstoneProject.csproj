@@ -9,13 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Model\" />
-    <Folder Include="MVVMBase\" />
-    <Folder Include="ViewModel\" />
-    <Folder Include="View\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Dapper" Version="2.1.66" />
     <PackageReference Include="Microsoft.AspNetCore.App.Internal.Assets" Version="10.0.2" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="6.1.4" />

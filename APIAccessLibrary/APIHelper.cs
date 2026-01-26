@@ -16,7 +16,7 @@ namespace APIAccessLibrary
                 ApiClient.DefaultRequestHeaders.Accept.Clear();
                 //look for json files from api
                 ApiClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
+            
             }
 
 
