@@ -1,10 +1,15 @@
-﻿using System;
+﻿using CapstoneProject.MVVMBase;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace CapstoneProject.ViewModel
 {
-    internal class UserLoginViewModel
+    internal class UserLoginViewModel : ViewModelBase
     {
+
+        public UserLoginViewModel() {
+        
+        }
     }
 }
