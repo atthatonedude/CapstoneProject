@@ -8,7 +8,7 @@ using CapstoneProject.Model;
 namespace CapstoneProject.ViewModel
 {
     internal class UserLoginViewModel : ViewModelBase
-    {
+    {   private readonly 
         public RelayCommand LoginCommand => new RelayCommand(execute => { }, canExecute => { return true; });
 
         public UserLoginViewModel() {

@@ -6,7 +6,7 @@ using System.Windows.Input;
 namespace CapstoneProject.MVVMBase
 {
     class RelayCommand : ICommand
-    {
+    {   
         private Action<object> execute;
         private Func<object, bool> canExecute;
         public event EventHandler? CanExecuteChanged
@@ -24,6 +24,7 @@ namespace CapstoneProject.MVVMBase
         public bool CanExecute(object? parameter)
         {
             return canExecute == null || canExecute(parameter);
+
         }
 
         public void Execute(object? parameter)
