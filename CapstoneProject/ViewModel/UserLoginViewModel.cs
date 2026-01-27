@@ -1,15 +1,24 @@
 ﻿using CapstoneProject.MVVMBase;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using CapstoneProject.View;
+
+
+using System.Windows;
+using CapstoneProject.Model;
 
 namespace CapstoneProject.ViewModel
 {
     internal class UserLoginViewModel : ViewModelBase
     {
+        public RelayCommand LoginCommand => new RelayCommand(execute => { }, canExecute => { return true; });
 
         public UserLoginViewModel() {
-        
+            
+        }
+
+        private void UserTbFill(object sender, EventArgs e)
+        {
+            
+            
         }
     }
 }

@@ -17,14 +17,12 @@ namespace CapstoneProject.View
     /// </summary>
     public partial class UserLogin : Window
     {
-        public UserLogin()
+        public UserLogin(Window parentWindow)
         {
+            Owner = parentWindow;
             InitializeComponent();
         }
 
-        private void btnLogin_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
     }
 }
