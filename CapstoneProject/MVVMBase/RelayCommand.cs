@@ -7,8 +7,8 @@ namespace CapstoneProject.MVVMBase
 {
     class RelayCommand : ICommand
     {   
-        private Action<object> execute;
-        private Func<object, bool> canExecute;
+        private readonly Action<object> executeable;
+        private readonly Func<object, bool> canExecuteable;
         public event EventHandler? CanExecuteChanged
         {
             add { CommandManager.RequerySuggested += value; }
@@ -17,19 +17,11 @@ namespace CapstoneProject.MVVMBase
 
         public RelayCommand(Action<object> execute, Func<object,bool> canExecute = null)
         {
-            this.execute = execute;
-            this.canExecute = canExecute;
+            executeable = execute;
+            canExecuteable = canExecute;
         }
 
-        public bool CanExecute(object? parameter)
-        {
-            return canExecute == null || canExecute(parameter);
-
-        }
-
-        public void Execute(object? parameter)
-        {
-            execute(parameter);
-        }
+        public bool CanExecute(object parameter) => canExecuteable == null || canExecuteable(parameter);
+        public void Execute(object parameter) => executeable(parameter);
     }
 }

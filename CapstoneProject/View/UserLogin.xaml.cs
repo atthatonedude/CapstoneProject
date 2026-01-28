@@ -1,28 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows.Controls;
 
 namespace CapstoneProject.View
 {
-    /// <summary>
-    /// Interaction logic for Window1.xaml
-    /// </summary>
-    public partial class UserLogin : Window
+    public partial class UserLogin : UserControl
     {
-        public UserLogin(Window parentWindow)
+        public UserLogin()
         {
-            Owner = parentWindow;
             InitializeComponent();
         }
-
-        
     }
 }
