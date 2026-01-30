@@ -3,6 +3,7 @@ using CapstoneProject.MVVMBase;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows;
 using System.Windows.Input;
 
 namespace CapstoneProject.ViewModel
@@ -15,13 +16,11 @@ namespace CapstoneProject.ViewModel
         {
             get { return view; } 
             set { view = value; OnPropertyChanged(); }
-
-            
         }
 
         public ICommand LoginCommand { get; set; }
 
-        private void LoginView(object obj) => View = new UserLoginViewModel();
+        private void LoginView(object obj) => View = new UserLogin();
 
         public NavigationViewModel()
         {

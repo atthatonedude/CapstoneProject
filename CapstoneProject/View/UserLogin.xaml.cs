@@ -1,8 +1,9 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
+using System.Windows.Controls;
 
 namespace CapstoneProject.View
 {
-    public partial class UserLogin : UserControl
+    public partial class UserLogin : Window
     {
         public UserLogin()
         {

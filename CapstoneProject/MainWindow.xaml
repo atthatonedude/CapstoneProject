@@ -8,6 +8,7 @@
         xmlns:local="clr-namespace:CapstoneProject"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    
     <Window.DataContext>
         <vm2:NavigationViewModel/>
     </Window.DataContext>

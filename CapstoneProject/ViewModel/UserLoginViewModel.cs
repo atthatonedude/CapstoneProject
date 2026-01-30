@@ -11,7 +11,7 @@ namespace CapstoneProject.ViewModel
     internal class UserLoginViewModel : MVVMBase.ViewModelBase
     {
 
-        private readonly CapstoneProject.View.UserLogin login;
+        
         public UserLoginViewModel() {
             
             
