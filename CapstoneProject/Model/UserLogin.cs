@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CapstoneProject.Model
 {
-    internal class UserLogin
+    public class UserLogin
     {
         public int UserId { get; set; }
         public string UserName { get; set; }

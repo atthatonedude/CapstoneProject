@@ -8,12 +8,12 @@ using System.Windows.Input;
 
 namespace CapstoneProject.ViewModel
 {
-    internal class UserLoginViewModel : MVVMBase.ViewModelBase
+    public class UserLoginViewModel : MVVMBase.ViewModelBase
     {
 
-        
+       
         public UserLoginViewModel() {
-            
+           
             
         }
 

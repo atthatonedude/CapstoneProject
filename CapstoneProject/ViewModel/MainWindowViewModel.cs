@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CapstoneProject.ViewModel
 {
-    internal class MainWindowViewModel
+    public class MainWindowViewModel
     {
 
     }
