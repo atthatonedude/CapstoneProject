@@ -10,10 +10,8 @@ namespace CapstoneProject.ViewModel
 {
     internal class CommandViewModel : MVVMBase.ViewModelBase
     {
-        public CommandViewModel()
-        {
-            
-        }
+        
+        
 
     }
 }

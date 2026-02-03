@@ -10,10 +10,12 @@ namespace CapstoneProject
         public Bootstrapper()
         {
             Initialize();
+
+            ViewLocator.AddSubNamespaceMapping("CapstoneProject.ViewModel", "CapstoneProject.View");
         }
-        protected override async void OnStartup(object sender, StartupEventArgs e)
+        protected override void OnStartup(object sender, StartupEventArgs e)
         {
-           await DisplayRootViewForAsync<UserLoginViewModel>();
+            DisplayRootViewForAsync<UserLoginViewModel>();
         }
     }
 }

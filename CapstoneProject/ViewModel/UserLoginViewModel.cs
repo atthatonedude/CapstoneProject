@@ -12,10 +12,7 @@ namespace CapstoneProject.ViewModel
     {
 
        
-        public UserLoginViewModel() {
-           
-            
-        }
+       
 
         
 
