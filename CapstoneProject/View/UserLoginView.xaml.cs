@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using CapstoneProject.ViewModel;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace CapstoneProject.View
@@ -8,6 +9,10 @@ namespace CapstoneProject.View
         public UserLoginView()
         {
             InitializeComponent();
+            UserLoginViewModel vm = new UserLoginViewModel();
+            DataContext  = vm;
+            
+            
         }
     }
 }

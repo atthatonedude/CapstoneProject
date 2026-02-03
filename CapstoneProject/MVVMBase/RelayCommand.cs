@@ -5,7 +5,7 @@ using System.Windows.Input;
 
 namespace CapstoneProject.MVVMBase
 {
-    class RelayCommand : ICommand
+    public class RelayCommand : ICommand
     {   
         private readonly Action<object> executeable;
         private readonly Func<object, bool> canExecuteable;

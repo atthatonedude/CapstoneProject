@@ -3,20 +3,25 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:local="clr-namespace:CapstoneProject.View"
-             mc:Ignorable="d"
+             xmlns:local="clr-namespace:CapstoneProject.View" xmlns:viewmodel="clr-namespace:CapstoneProject.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:UserLoginViewModel}"
+        mc:Ignorable="d"
              Height="300" Width="400">
     <Grid>
         <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Vertical" Margin="0,10,0,0">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5">
                 <Label Content="Username:" Width="80" VerticalAlignment="Center" HorizontalContentAlignment="Right" Margin="0,0,8,0"/>
-                <TextBox Name="userTb"  Width="180" Height="30"/>
+                <TextBox Name="userTb"  Width="180" Height="30" Text="{Binding Model.UserName}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5">
                 <Label Content="Password:" Width="80" VerticalAlignment="Center" HorizontalContentAlignment="Right" Margin="0,0,8,0"/>
-                <PasswordBox Name="passwordPb" Width="180" Height="30"/>
+                <TextBox  Name="passwordTb" Width="180" Height="30" Text="{Binding Model.UserPassword}"/>
             </StackPanel>
-            <!-- Todo: figure out how to bind button to viewModel not codebehind-->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Content="Login" Command="{Binding LoginCommand}"  Height="30" Width="60" />
+                
+            </StackPanel>
+            
+            
             
             
         </StackPanel>
