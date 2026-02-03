@@ -3,9 +3,9 @@ using System.Windows.Controls;
 
 namespace CapstoneProject.View
 {
-    public partial class UserLogin : Window
+    public partial class UserLoginView : Window
     {
-        public UserLogin()
+        public UserLoginView()
         {
             InitializeComponent();
         }
