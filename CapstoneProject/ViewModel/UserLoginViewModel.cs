@@ -3,6 +3,7 @@ using CapstoneProject;
 using CapstoneProject.Model;
 using System.Windows;
 using System.Windows.Input;
+using System.Threading.Tasks;
 
 namespace CapstoneProject.ViewModel
 {
@@ -14,7 +15,9 @@ namespace CapstoneProject.ViewModel
         
 
             get { return model; }
-            set { model = value;OnPropertyChanged(); }
+            set { model = value;
+                OnPropertyChanged();
+            }
 
         }
 
@@ -30,17 +33,35 @@ namespace CapstoneProject.ViewModel
             
       
             LoginCommand = new RelayCommand(execute: _ => OnClickLogin());
-            
+
         }
 
         
 
        
 
-        private void OnClickLogin()
+        private async Task<bool> OnClickLogin()
         {
+            var apiModel = new APIAccessLibrary.Model.UserLoginModal();
+            apiModel.UserName = model.UserName;
+            apiModel.UserPassword = model.UserPassword;
+
+            if (apiModel != null) {
+
+               await APIAccessLibrary.ApiProcessor.CreateUserAsync(apiModel);
+                return true;
+            }
+            else {
+                
+                MessageBox.Show($"User not created.\nTry again.");
+                
+                return false; 
+
+            }
             
         }
+
+        
 
 
 
