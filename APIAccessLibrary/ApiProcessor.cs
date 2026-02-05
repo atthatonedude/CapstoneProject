@@ -12,9 +12,10 @@ namespace APIAccessLibrary
     {
         public static async Task<bool> CreateUserAsync(UserLoginModal modal)
         {
-            
+            var helper = new ApiHelper();
             string url = "/api/usercreation";
-            using (HttpResponseMessage response = await  ApiHelper.ApiClient.PostAsJsonAsync(url, modal))
+            var client = helper?.ApiClient;
+            using (HttpResponseMessage response = await  client.PostAsJsonAsync(url, modal))
             {
                 if (response.IsSuccessStatusCode)
                 {
@@ -23,7 +24,8 @@ namespace APIAccessLibrary
                 }
                 else
                 {
-                    throw new Exception(response.ReasonPhrase);
+                    
+                    return false;
                 }
             }
         }

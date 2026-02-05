@@ -9,6 +9,8 @@ namespace CapstoneProject.MVVMBase
     {   
         private readonly Action<object> executeable;
         private readonly Func<object, bool> canExecuteable;
+
+
         public event EventHandler? CanExecuteChanged
         {
             add { CommandManager.RequerySuggested += value; }

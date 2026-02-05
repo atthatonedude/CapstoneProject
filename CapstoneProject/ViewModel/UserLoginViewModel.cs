@@ -45,20 +45,34 @@ namespace CapstoneProject.ViewModel
             var apiModel = new APIAccessLibrary.Model.UserLoginModal();
             apiModel.UserName = model.UserName;
             apiModel.UserPassword = model.UserPassword;
+            apiModel.FirstName = "dd";
+            apiModel.LastName = "cc";
+            apiModel.UserEmail = "df";
+            
 
             if (apiModel != null) {
 
-               await APIAccessLibrary.ApiProcessor.CreateUserAsync(apiModel);
-                return true;
-            }
-            else {
-                
-                MessageBox.Show($"User not created.\nTry again.");
-                
-                return false; 
+               var response = await APIAccessLibrary.ApiProcessor.CreateUserAsync(apiModel);
 
+                if (response != true)
+                {
+                    
+
+                        MessageBox.Show($"User not created.\nTry again.");
+
+                        return false;
+
+                    
+                }
+
+
+                MessageBox.Show($"User Created");
+                
+                
             }
-            
+            return true;
+
+
         }
 
         
