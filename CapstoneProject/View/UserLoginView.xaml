@@ -1,11 +1,11 @@
-﻿<Window x:Class="CapstoneProject.View.UserLoginView"
+﻿<UserControl x:Class="CapstoneProject.View.UserLoginView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:local="clr-namespace:CapstoneProject.View" xmlns:viewmodel="clr-namespace:CapstoneProject.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:UserLoginViewModel}"
+             xmlns:local="clr-namespace:CapstoneProject.View" xmlns:viewmodel="clr-namespace:CapstoneProject.ViewModel" 
         mc:Ignorable="d"
-             Height="300" Width="400">
+             Height="300" Width="400" Background="Bisque">
     <Grid>
         <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Vertical" Margin="0,10,0,0">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5">
@@ -17,7 +17,8 @@
                 <TextBox  Name="passwordTb" Width="180" Height="30" Text="{Binding Model.UserPassword}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Content="Login" Command="{Binding LoginCommand}"  Height="30" Width="60" />
+            <Button Content="Create User" Command="{Binding CreateUserCommand}"  Height="30" Width="65" />
+            <Button Content="Login" Command="{Binding LoginUserCommand}"  Height="30" Width="65" Margin="5" />
                 
             </StackPanel>
             
@@ -26,4 +27,4 @@
             
         </StackPanel>
     </Grid>
-</Window>
+</UserControl>

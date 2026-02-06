@@ -1,8 +1,8 @@
 ﻿using CapstoneProject.MVVMBase;
-using CapstoneProject;
 using CapstoneProject.Model;
 using System.Windows;
 using System.Windows.Input;
+using Caliburn.Micro;
 using System.Threading.Tasks;
 
 namespace CapstoneProject.ViewModel
@@ -10,9 +10,9 @@ namespace CapstoneProject.ViewModel
     public class UserLoginViewModel : MVVMBase.ViewModelBase
     {
         private UserLoginModal model;
-
-        public UserLoginModal Model {
         
+        public UserLoginModal Model {
+            
 
             get { return model; }
             set { model = value;
@@ -21,35 +21,29 @@ namespace CapstoneProject.ViewModel
 
         }
 
-
         
-        
-        public ICommand LoginCommand {  get; set; }
+        public ICommand CreateUserCommand {  get; set; }
+        public ICommand LoginUserCommand {  get; set; }
 
+        //Constructor
         public UserLoginViewModel()
-        {   
+        {
             Model = new UserLoginModal();
             
             
       
-            LoginCommand = new RelayCommand(execute: _ => OnClickLogin());
+            CreateUserCommand = new RelayCommand(execute: _ => OnClickCreateUser());
+
+            LoginUserCommand = new RelayCommand(execute: _ => OnClickUserLogin());
 
         }
 
-        
-
-       
-
-        private async Task<bool> OnClickLogin()
+        private async Task<bool> OnClickCreateUser()
         {
             var apiModel = new APIAccessLibrary.Model.UserLoginModal();
             apiModel.UserName = model.UserName;
-            apiModel.UserPassword = model.UserPassword;
-            apiModel.FirstName = "dd";
-            apiModel.LastName = "cc";
-            apiModel.UserEmail = "df";
+            apiModel.UserPassword = model.UserPassword;            
             
-
             if (apiModel != null) {
 
                var response = await APIAccessLibrary.ApiProcessor.CreateUserAsync(apiModel);
@@ -57,23 +51,58 @@ namespace CapstoneProject.ViewModel
                 if (response != true)
                 {
                     
-
                         MessageBox.Show($"User not created.\nTry again.");
 
                         return false;
-
-                    
+                                        
                 }
 
 
                 MessageBox.Show($"User Created");
                 
-                
             }
+            
+            
             return true;
 
 
         }
+
+        private async Task<bool> OnClickUserLogin()
+        {
+            var apiModel = new APIAccessLibrary.Model.UserLoginModal();
+            apiModel.UserName = model.UserName;
+            apiModel.UserPassword = model.UserPassword;
+
+            if (apiModel != null)
+            {
+
+                var response = await APIAccessLibrary.ApiProcessor.LoginUserAsync(apiModel);
+
+                if (response != true)
+                {
+
+                    MessageBox.Show($"User or password could not be verified\nTry again");
+
+                    return false;
+
+                }
+
+                MessageBox.Show("User Verified");
+
+                
+
+                
+
+
+            }
+            
+
+            return true;
+
+
+        }
+
 
         
 

@@ -4,8 +4,7 @@ using System.Text;
 
 namespace CapstoneProject.ViewModel
 {
-    public class MainWindowViewModel
+    internal class InventoryWindowViewModel :MVVMBase.ViewModelBase
     {
-
     }
 }

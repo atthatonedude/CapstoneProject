@@ -1,7 +1,7 @@
-﻿using Caliburn.Micro;
-using System.Windows;
+using Caliburn.Micro;
 using CapstoneProject.ViewModel;
-using System.Threading.Tasks;
+using System.Diagnostics;
+using System.Windows;
 
 namespace CapstoneProject
 {
@@ -15,7 +15,7 @@ namespace CapstoneProject
         }
         protected override void OnStartup(object sender, StartupEventArgs e)
         {
-            DisplayRootViewForAsync<UserLoginViewModel>();
+            DisplayRootViewForAsync<ShellViewModel>();
         }
     }
 }

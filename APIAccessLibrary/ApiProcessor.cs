@@ -13,13 +13,35 @@ namespace APIAccessLibrary
         public static async Task<bool> CreateUserAsync(UserLoginModal modal)
         {
             var helper = new ApiHelper();
-            string url = "/api/usercreation";
+            string url = "/api/usercreation"; 
             var client = helper?.ApiClient;
             using (HttpResponseMessage response = await  client.PostAsJsonAsync(url, modal))
             {
                 if (response.IsSuccessStatusCode)
                 {
 
+                    return true;
+                }
+                else
+                {
+                    
+                    return false;
+                }
+            }
+        }
+        public static async Task<bool> LoginUserAsync(UserLoginModal modal)
+        {
+            var helper = new ApiHelper();
+            var client = helper?.ApiClient;
+            //Dont do this, it can be cached.
+            string url = $"/api/userlogin?username={modal.UserName}&password={modal.UserPassword}";
+
+
+            using (HttpResponseMessage response = await client.GetAsync(url))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    
                     return true;
                 }
                 else
