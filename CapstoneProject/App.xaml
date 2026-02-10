@@ -10,7 +10,7 @@
             <ResourceDictionary.MergedDictionaries>
                 
                 <ResourceDictionary>
-                    
+                    <local2:Bootstrapper x:Key="bootstrapper" />
                 </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

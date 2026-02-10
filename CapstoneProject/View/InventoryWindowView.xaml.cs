@@ -16,7 +16,7 @@ namespace CapstoneProject.View
     /// <summary>
     /// Interaction logic for InventoryWindowView.xaml
     /// </summary>
-    public partial class InventoryWindowView : MVVMBase.ViewModelBase
+    public partial class InventoryWindowView : UserControl
 
     {
         public InventoryWindowView()

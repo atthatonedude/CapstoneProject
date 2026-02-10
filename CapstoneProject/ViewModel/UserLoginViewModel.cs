@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Input;
 using Caliburn.Micro;
 using System.Threading.Tasks;
+using CapstoneProject.ViewModel;
 
 namespace CapstoneProject.ViewModel
 {
@@ -38,6 +39,15 @@ namespace CapstoneProject.ViewModel
 
         }
 
+
+        public  bool CloseWindow()
+        {
+             TryCloseAsync();
+             
+                return true;
+
+        }
+        
         private async Task<bool> OnClickCreateUser()
         {
             var apiModel = new APIAccessLibrary.Model.UserLoginModal();
@@ -67,7 +77,7 @@ namespace CapstoneProject.ViewModel
 
 
         }
-
+        
         private async Task<bool> OnClickUserLogin()
         {
             var apiModel = new APIAccessLibrary.Model.UserLoginModal();
@@ -87,27 +97,20 @@ namespace CapstoneProject.ViewModel
                     return false;
 
                 }
-
+                
                 MessageBox.Show("User Verified");
 
-                
-
-                
 
 
             }
+            CloseWindow();
             
 
             return true;
-
+            
 
         }
-
-
         
-
-
-
 
     }
 }

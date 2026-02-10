@@ -2,19 +2,23 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using CapstoneProject.ViewModel;
 
 namespace CapstoneProject.ViewModel
 {
     internal class ShellViewModel : Conductor<object>
-    {   public readonly UserLoginViewModel userLoginViewModel;
-        public ShellViewModel(UserLoginViewModel model)
+    {   
+        public ShellViewModel(object model)
         {
+            
 
-
-            userLoginViewModel = new UserLoginViewModel();
-
-            ActivateItemAsync(userLoginViewModel);
-             
+            ActivateItemAsync(new UserLoginViewModel());
         }
+
+        public void ShowInventoryWindow()
+        {
+            ActivateItemAsync(new InventoryWindowViewModel());
+        }
+
     }
 }
