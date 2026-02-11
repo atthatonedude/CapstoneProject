@@ -6,19 +6,23 @@ using CapstoneProject.ViewModel;
 
 namespace CapstoneProject.ViewModel
 {
-    internal class ShellViewModel : Conductor<object>
+    public  class ShellViewModel : Conductor<object>
     {   
-        public ShellViewModel(object model)
+        public ShellViewModel()
         {
             
 
             ActivateItemAsync(new UserLoginViewModel());
         }
 
-        public void ShowInventoryWindow()
+        public async Task OpenNewInventoryWindow()
         {
-            ActivateItemAsync(new InventoryWindowViewModel());
+            
+            await ActivateItemAsync(new InventoryWindowViewModel());
+            
+            
         }
+
 
     }
 }

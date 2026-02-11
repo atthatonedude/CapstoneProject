@@ -40,11 +40,11 @@ namespace CapstoneProject.ViewModel
         }
 
 
-        public  bool CloseWindow()
+        public  void CloseWindow()
         {
              TryCloseAsync();
              
-                return true;
+                
 
         }
         
@@ -103,8 +103,20 @@ namespace CapstoneProject.ViewModel
 
 
             }
-            CloseWindow();
+
             
+            // Ask the existing Shell (the Parent) to open the inventory view
+            if (this.Parent is ShellViewModel shell)
+            {
+                await shell.OpenNewInventoryWindow();
+                await TryCloseAsync(); // close the login screen if that's desired
+            }
+            else
+            {
+                // Fallback: if Parent is null, create a shell and activate (less ideal)
+                var tempShell = new ShellViewModel();
+                await tempShell.OpenNewInventoryWindow();
+            }
 
             return true;
             
