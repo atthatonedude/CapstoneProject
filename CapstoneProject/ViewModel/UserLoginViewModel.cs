@@ -2,9 +2,6 @@
 using CapstoneProject.Model;
 using System.Windows;
 using System.Windows.Input;
-using Caliburn.Micro;
-using System.Threading.Tasks;
-using CapstoneProject.ViewModel;
 
 namespace CapstoneProject.ViewModel
 {
