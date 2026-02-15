@@ -35,7 +35,7 @@ namespace CapstoneProject.ViewModel
 
 
         public ICommand GetItemsCommand { get; set; }
-
+        //Constructor
         public InventoryWindowViewModel()
         {
             ItemSearched = new ItemModel();
@@ -49,7 +49,7 @@ namespace CapstoneProject.ViewModel
         private async Task GetItems()
         {
             var apiModel = new APIAccessLibrary.Model.ItemModel();
-            apiModel.ItemId = ItemSearched.ItemId;
+            apiModel.ItemId = itemSearched.ItemId;
 
 
             var response  = await APIAccessLibrary.ApiProcessor.GetItemsAsync(apiModel);

@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CapstoneProject.View"
         xmlns:viewmodel="clr-namespace:CapstoneProject.ViewModel"
-        mc:Ignorable="d"
+        xmlns:viewmodelbase="clr-namespace:CapstoneProject.MVVMBase" d:DataContext="{d:DesignInstance Type=viewmodel:InventoryWindowViewModel}"
+             mc:Ignorable="d"
         Height="450" Width="800" Background="Bisque">
     <Grid>
         <Grid.RowDefinitions>
@@ -29,7 +30,7 @@
 
         <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,0">
             <Label Content="FG Item Number:" FontSize="12" FontWeight="Regular" Width="100"  />
-            <TextBox Width="200" Margin="7,0,0,0" Text="{Binding ItemSearched, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox Width="200" Margin="7,0,0,0" Text="{Binding ItemSearched.ItemPartNumber, UpdateSourceTrigger=PropertyChanged}" />
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="left" VerticalAlignment="Top" Margin="0,40,0,0">
             <Label Content="Available FG:" FontSize="12" FontWeight="Regular" Width="100" />

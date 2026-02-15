@@ -28,8 +28,6 @@ namespace CapstoneProject.ViewModel
         {
             Model = new UserLoginModal();
             
-            
-      
             CreateUserCommand = new RelayCommand(execute: _ => OnClickCreateUser());
 
             LoginUserCommand = new RelayCommand(execute: _ => OnClickUserLogin());
