@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CapstoneProject.Model
+namespace APIAccessLibrary.Model
 {
-    internal class UserLogin
+    public class UserLoginModal
     {
+        
+
         public int UserId { get; set; }
         public string UserName { get; set; }
         public string UserEmail { get; set; }
@@ -13,7 +15,5 @@ namespace CapstoneProject.Model
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public bool IsActive { get; set; }
-
-
     }
 }

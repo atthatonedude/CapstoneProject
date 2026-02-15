@@ -5,15 +5,16 @@ using System.Windows.Input;
 
 namespace CapstoneProject.MVVMBase
 {
-    class RelayCommand : ICommand
+    public class RelayCommand : ICommand
     {   
         private readonly Action<object> executeable;
         private readonly Func<object, bool> canExecuteable;
+
         public event EventHandler? CanExecuteChanged
         {
             add { CommandManager.RequerySuggested += value; }
             remove { CommandManager.RequerySuggested -= value; }
-            }
+        }
 
         public RelayCommand(Action<object> execute, Func<object,bool> canExecute = null)
         {
@@ -21,7 +22,7 @@ namespace CapstoneProject.MVVMBase
             canExecuteable = canExecute;
         }
 
-        public bool CanExecute(object parameter) => canExecuteable == null || canExecuteable(parameter);
+        public bool CanExecute(object? parameter) => canExecuteable == null || canExecuteable(parameter);
         public void Execute(object parameter) => executeable(parameter);
     }
 }

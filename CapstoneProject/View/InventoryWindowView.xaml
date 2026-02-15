@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="CapstoneProject.View.InventoryWindowView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CapstoneProject.View"
+        xmlns:viewmodel="clr-namespace:CapstoneProject.ViewModel"
+        xmlns:viewmodelbase="clr-namespace:CapstoneProject.MVVMBase" d:DataContext="{d:DesignInstance Type=viewmodel:InventoryWindowViewModel}"
+             mc:Ignorable="d"
+        Height="450" Width="800" Background="Bisque">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>            
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label Content="Bill of Material Menu" FontSize="20" FontWeight="Regular"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,0">
+            <Label Content="FG Item Number:" FontSize="12" FontWeight="Regular" Width="100"  />
+            <TextBox Width="200" Margin="7,0,0,0" Text="{Binding ItemSearched.ItemPartNumber, UpdateSourceTrigger=PropertyChanged}" />
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="left" VerticalAlignment="Top" Margin="0,40,0,0">
+            <Label Content="Available FG:" FontSize="12" FontWeight="Regular" Width="100" />
+            <TextBox Width="200" Margin="7,0,0,0" IsReadOnly="True" Background="LightGray" />
+        </StackPanel>
+
+        <DataGrid Grid.Row="2" Grid.Column="1" Grid.RowSpan="3" ItemsSource="{Binding InventoryItems}" AutoGenerateColumns="False" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Item Id" Width="4*" Binding="{Binding ItemId}" />
+                <DataGridTextColumn Header="Item Desc" Width="4*" Binding="{Binding ItemDesc}" />
+                <DataGridTextColumn Header="Item Part #" Width="4*" Binding="{Binding ItemPart}" />
+                <DataGridTextColumn Header="Item Quantity" Width="4*" Binding="{Binding ItemQuantity}" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button Grid.Row="5" Grid.Column="1" Content="Calculate" Command="{Binding GetItemsCommand}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="30"/>
+
+    </Grid>
+</UserControl>
