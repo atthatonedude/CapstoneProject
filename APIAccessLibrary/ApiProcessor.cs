@@ -6,6 +6,7 @@ using APIAccessLibrary.Model;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
 using System.Net.NetworkInformation;
+using System.Security.RightsManagement;
 
 namespace APIAccessLibrary
 {    //this will process requests to db. Create functions to process to db.
@@ -57,7 +58,7 @@ namespace APIAccessLibrary
         {
             var helper = new ApiHelper();
             var client = helper?.ApiClient;
-            string url = $"/api/getitems?itemid={model.ItemPartNumber}";
+            string url = $"/api/getitems?searchedpartnumber={model.ItemPartNumber}";
             using (HttpResponseMessage response = await client.GetAsync(url))
             {
                 if (response.IsSuccessStatusCode)
@@ -68,6 +69,28 @@ namespace APIAccessLibrary
                 else
                 {
                     return new List<ItemModel>();
+                }
+            }
+
+        }
+
+        public static async Task<int> GetBuildableItemsAsync(int parentItemId)
+        {
+            var helper = new ApiHelper();
+            var client = helper?.ApiClient;
+
+            string url = $"/api/getmaxbuildqty?parentItemId={parentItemId}";
+
+            using (HttpResponseMessage response = await client.GetAsync(url))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    var qty = await response.Content.ReadFromJsonAsync<int>();
+                    return qty;
+                }
+                else
+                {
+                    return 0;
                 }
             }
 
