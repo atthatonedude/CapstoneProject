@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CapstoneProject.View"
         mc:Ignorable="d"
-        Title="ShellView" Height="670" Width="1080">
+        Title="Bill Of Materials" Height="670" Width="1080"
+        Background="LightGray">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="50"/>

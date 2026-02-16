@@ -30,18 +30,21 @@
 
         <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,0">
             <Label Content="FG Item Number:" FontSize="12" FontWeight="Regular" Width="100"  />
-            <TextBox Width="200" Margin="7,0,0,0" Text="{Binding ItemSearched.ItemPartNumber, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox x:Name="ItemPartNumberTextBox" Width="200"
+            Margin="7,0,0,0"
+            Text="{Binding ItemSearched.ItemPartNumber,NotifyOnSourceUpdated=True,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="left" VerticalAlignment="Top" Margin="0,40,0,0">
             <Label Content="Available FG:" FontSize="12" FontWeight="Regular" Width="100" />
-            <TextBox Width="200" Margin="7,0,0,0" IsReadOnly="True" Background="LightGray" />
+            <TextBox Width="200" Margin="7,0,0,0" IsReadOnly="True" Background="LightGray" Text="{Binding ItemMaximumBuildable.ItemQuantity}" />
         </StackPanel>
 
         <DataGrid Grid.Row="2" Grid.Column="1" Grid.RowSpan="3" ItemsSource="{Binding InventoryItems}" AutoGenerateColumns="False" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Item Id" Width="4*" Binding="{Binding ItemId}" />
-                <DataGridTextColumn Header="Item Desc" Width="4*" Binding="{Binding ItemDesc}" />
-                <DataGridTextColumn Header="Item Part #" Width="4*" Binding="{Binding ItemPart}" />
+                <DataGridTextColumn Header="Item Desc" Width="4*" Binding="{Binding ItemDescription}" />
+                <DataGridTextColumn Header="Item Part #" Width="4*" Binding="{Binding ItemPartNumber}" />
                 <DataGridTextColumn Header="Item Quantity" Width="4*" Binding="{Binding ItemQuantity}" />
             </DataGrid.Columns>
         </DataGrid>

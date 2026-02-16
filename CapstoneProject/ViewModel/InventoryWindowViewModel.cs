@@ -33,8 +33,21 @@ namespace CapstoneProject.ViewModel
             }
         }
 
+        private ItemModel itemMaximumBuildable;
+
+        public ItemModel ItemMaximumBuildable
+        {
+            get { return itemMaximumBuildable; }
+            set
+            {
+                itemMaximumBuildable = value;
+                OnPropertyChanged();
+            }
+        }
 
         public ICommand GetItemsCommand { get; set; }
+
+
         //Constructor
         public InventoryWindowViewModel()
         {
@@ -49,11 +62,12 @@ namespace CapstoneProject.ViewModel
         private async Task GetItems()
         {
             var apiModel = new APIAccessLibrary.Model.ItemModel();
-            apiModel.ItemId = itemSearched.ItemId;
+            // Use the part number the user entered/bound in the UI
+            apiModel.ItemPartNumber = itemSearched.ItemPartNumber;
 
+            var response = await APIAccessLibrary.ApiProcessor.GetItemsAsync(apiModel);
 
-            var response  = await APIAccessLibrary.ApiProcessor.GetItemsAsync(apiModel);
-
+            InventoryItems.Clear();
             foreach (var item in response)
             {
                 InventoryItems.Add(new ItemModel
@@ -64,6 +78,29 @@ namespace CapstoneProject.ViewModel
                     ItemPartNumber = item.ItemPartNumber
                 });
             }
+            ShowMaximumBuildable();
+            
+        }
+
+        private async Task ShowMaximumBuildable()
+        {
+            var apiModelPartNumber = itemSearched.ItemPartNumber;
+
+            
+            
+
+            var response = await APIAccessLibrary.ApiProcessor.GetBuildableItemsAsync(apiModelPartNumber);
+
+
+
+
+            ItemMaximumBuildable = new ItemModel
+            {
+
+
+                ItemQuantity = response
+
+            };
 
 
         }
