@@ -36,7 +36,7 @@
 
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="left" VerticalAlignment="Top" Margin="0,40,0,0">
-            <Label Content="Available FG:" FontSize="12" FontWeight="Regular" Width="100" />
+            <Label Content="Buildable FG:" FontSize="12" FontWeight="Regular" Width="100" />
             <TextBox Width="200" Margin="7,0,0,0" IsReadOnly="True" Background="LightGray" Text="{Binding ItemMaximumBuildable.ItemQuantity}" />
         </StackPanel>
 
